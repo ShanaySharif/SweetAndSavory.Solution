@@ -55,7 +55,7 @@ namespace SweetAndSavory.Controllers
         }
         public ActionResult Details(int id)
         {
-            Flavors thisFlavor = _db.Flavors
+            Flavor thisFlavor = _db.Flavors
             .Include(flavor => flavor.JoinEntities)
             .ThenInclude(join => join.Treat)
             .FirstOrDefault(thisFlavor => thisFlavor.FlavorId == id);
@@ -79,7 +79,7 @@ namespace SweetAndSavory.Controllers
 
         public ActionResult Delete(int id)
         {
-            Flavor thisFlavor = _dbFlavors.FirstOrDefault(flavor = FlavorsController.FlavorId == id);
+           Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
             return View(thisFlavor);
         }
 
@@ -100,7 +100,7 @@ namespace SweetAndSavory.Controllers
               .ToList();
             Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
             ViewBag.TreatId = new SelectList(userTreats, "TreatId", "TreatName");
-            return View(thisRecipe);
+            return View(thisFlavor);
         }
         [HttpPost]
         public ActionResult AddTreat(Flavor flavor, int treatId)

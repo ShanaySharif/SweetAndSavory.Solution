@@ -24,7 +24,7 @@ namespace SweetAndSavory
                       );
       
       builder.Services.AddIdentity<Account, IdentityRole>()
-                .AddEntityFrameworkStores<RecipeBoxContext>()
+                .AddEntityFrameworkStores<SweetAndSavoryContext>()
                 .AddDefaultTokenProviders();
 
       builder.Services.Configure<IdentityOptions>(options =>
