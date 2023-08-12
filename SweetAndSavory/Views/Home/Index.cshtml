@@ -1,4 +1,4 @@
-@{
+@* @{
     Layout = "_Layout";
 }
 
@@ -6,4 +6,68 @@
     <h1 class="display-4"></h1>
 </div>
 
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p> *@
+
+
+
+@{
+    Layout = "_Layout";
+}
+
+@using SweetAndSavory.Models;
+
+
+
+<div class="container">
+    <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+    <h1 class="text-center">Dr. Silly Stringz Factory</h1>
+</div>
+<hr />
+<div class="text-center container-wrapper">
+    <div class="section">
+        <h2 class="mb-3">Treats</h2>
+        <p>
+            @Html.ActionLink("Manage Treats", "Index", "Machines", new { @class = "btn btn-primary" })
+        </p>
+
+        @if (Model["treats"] == null || Model["treats"].Length == 0)
+        {
+            <p>No treats have been added yet!</p>
+        }
+        else
+        {
+            <ul class="list-group">
+                @foreach (Treat treat in Model["treats"])
+                {
+                    <li class="list-group-item">
+                         @Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId }, new { @class = "link-item" }) 
+                    </li> 
+                }
+            </ul>
+        }
+    </div>
+
+    <div class="section">
+        <h2 class="mb-3">Flavors</h2>
+        <p>
+            @Html.ActionLink("Manage Flavors", "Index", "Flavors", new { @class = "btn btn-primary" })
+        </p>
+
+        @if (Model["flavors"] == null || Model["flavors"].Length == 0)
+        {
+            <p>No Flavors have been added yet!</p>
+        }
+        else
+        {
+            <ul class="list-group">
+                @foreach (Flavor flavor in Model["flavors"])
+                {
+                    <li class="list-group-item">
+                        @Html.ActionLink(@flavor.FlavorName, "Details", "Flavors", new { id = @flavor.FlavorId }, new { @class = "link-item" })
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+<hr />
