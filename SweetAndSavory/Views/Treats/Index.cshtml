@@ -1,23 +1,23 @@
+
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
-@using SweetAndSavory.Models
-@using Microsoft.AspNetCore.Identity;
+@using SweetAndSavory.Models;
+@* @using Microsoft.AspNetCore.Identity; *@
 
-<h1>Treats</h1>
+<h4>Select a Treat below:</h4>
 
 @if (@Model.Count == 0)
 {
-  <h3>No Treats have been added yet!</h3>
-}
+  <h3>No current Treats are available</h3>
+} 
 
-@foreach (Treat treat in Model)
-{
-  <li>@Html.ActionLink($"{flavor.TreatName}", "Details", new {id = treat.TreatId})</li>
-}
+<ul>
+  @foreach(Treat treat in Model)
+  {
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
+  }
+</ul>
 
-<p>@Html.ActionLink("Add new Treat", "Create")</p>
-<p>@Html.ActionLink("Home", "index", "Home")</p>
-
-//code should be treats not flavors
+<p>@Html.ActionLink("Create a new treat profile", "Create", "Treats")</p>

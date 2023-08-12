@@ -5,27 +5,6 @@
 @using SweetAndSavory.Models
 @model SweetAndSavory.Models.Flavor
 
-@* <div class="container">
-  <h1>Add a New Flavor</h1>
-</div>
-<hr />
-@using (Html.BeginForm())
-{
-    <div class="form-container">
-        @Html.LabelFor(model => model.FlavorName)
-        @Html.TextBoxFor(model => model.FlavorName)
-    </div>
-    <div class="center">
-        <input type="submit" value="Add new flavor" />
-    </div>
-} *@
-
-@* @{
-    Layout = "_Layout";
-}
-
-@model Factory.Models.Engineer *@
-
 <div class="text-center">
     <h1>Add a New Flavor</h1>
 </div>
@@ -46,7 +25,6 @@
         </div>
     }
 </div>
-
 
 
 <div class="text-center container mt-5">
