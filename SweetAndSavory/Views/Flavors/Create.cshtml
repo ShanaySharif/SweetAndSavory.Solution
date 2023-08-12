@@ -5,7 +5,7 @@
 @using SweetAndSavory.Models
 @model SweetAndSavory.Models.Flavor
 
-<div class="container">
+@* <div class="container">
   <h1>Add a New Flavor</h1>
 </div>
 <hr />
@@ -18,4 +18,39 @@
     <div class="center">
         <input type="submit" value="Add new flavor" />
     </div>
+} *@
+
+@* @{
+    Layout = "_Layout";
 }
+
+@model Factory.Models.Engineer *@
+
+<div class="text-center">
+    <h1>Add a New Flavor</h1>
+</div>
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="text-center">
+            <div class="form-group">
+                <label class="form-label">@Html.DisplayNameFor(model => model.FlavorName)</label>
+                @Html.TextBoxFor(model => model.FlavorName, new { @class = "form-control" })
+                <p class="text-danger">@Html.ValidationMessageFor(model => model.FlavorName)</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Add New Flavor</button>
+        </div>
+    }
+</div>
+
+
+
+<div class="text-center container mt-5">
+    <div class="link-container">
+        <p>@Html.ActionLink("Back to All Flavors", "Index", null, new { @class = "btn btn-secondary" })</p>
+    </div>
+</div>
