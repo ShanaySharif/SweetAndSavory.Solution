@@ -11,9 +11,9 @@ namespace SweetAndSavory.Controllers
     public class HomeController : Controller
     {
         private readonly SweetAndSavoryContext _db;
-        private readonly UserManager<Account> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController(UserManager<Account> userManager, SweetAndSavoryContext db)
+        public HomeController(UserManager<ApplicationUser> userManager, SweetAndSavoryContext db)
         {
             _userManager = userManager;
             _db = db;
@@ -27,11 +27,11 @@ namespace SweetAndSavory.Controllers
             Dictionary<string, object[]> model = new Dictionary<string, object[]>();
             model.Add("flavors", flavors);
             string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            Account currentUser = await _userManager.FindByIdAsync(userId);
+            ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
             if (currentUser != null)
             {
                 Treat[] treats = _db.Treats
-                    .Where(entry => entry.User.Id == currentUser.Id)
+                    // .Where(entry => entry.User.Id == currentUser.Id)
                     .ToArray();
                 model.Add("treats", treats);
             }

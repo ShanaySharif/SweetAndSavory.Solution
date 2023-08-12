@@ -11,7 +11,7 @@ namespace SweetAndSavory.Models
     public int TreatId { get; set; }
   
     public List <FlavorTreat> JoinEntities { get; set; }
-    public Account User { get; set; }   
+   
     
   }
 }

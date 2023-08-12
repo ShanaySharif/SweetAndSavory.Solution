@@ -23,7 +23,7 @@ namespace SweetAndSavory
                         )
                       );
       
-      builder.Services.AddIdentity<Account, IdentityRole>()
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<SweetAndSavoryContext>()
                 .AddDefaultTokenProviders();
 
