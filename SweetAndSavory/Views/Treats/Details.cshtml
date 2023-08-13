@@ -4,7 +4,7 @@
     Layout = "_Layout";
 }
 @using SweetAndSavory.Models
-@model SweetAndSavory.Models.Flavor
+@model SweetAndSavory.Models.Treat
 
 <div class="container">
     <h1>Treat Details</h1>
@@ -14,15 +14,15 @@
 <div class="container">
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>There are no Flavors that have this Treat.</p>
+  <p>There are no Treats that have this Flavor.</p>
 }
 else
 {
-  <h4>The following Flavors are available in this Treat:</h4>
+  <h4>The following Treat are available in this Flavor:</h4>
   <ul>
   @foreach(FlavorTreat join in Model.JoinEntities)
   {
-    <li>@join.Flavor.TreatName</li>
+    <li>@join.Flavor.FlavorName</li>
   }
   </ul>
 }

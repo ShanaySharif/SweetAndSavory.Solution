@@ -1,12 +1,10 @@
 
-
+@* 
  @{
     Layout = "_Layout";
 }
 
 @using SweetAndSavory.Models;
-
-
 
 <div class="container">
     <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
@@ -20,10 +18,11 @@
             @Html.ActionLink("Manage Treats", "Index", "Treats", new { @class = "btn btn-primary" })
         </p>
 
-        @if (Model["treats"] == null || Model["treats"].Length == 0)
+     @if (Model["treats"] == null || Model["treats"].Length == 0) 
+
         {
-            <p>No treats have been added yet!</p>
-        }
+            <p>No treats have been added yet!</p> 
+        } 
         else
         {
             <ul class="list-group">
@@ -39,10 +38,10 @@
 
     <div class="section">
         <h2 class="mb-3">Flavors</h2>
-        <p>
-            @Html.ActionLink("Manage Flavors", "Index", "Flavors", new { @class = "btn btn-primary" })
+        <p> *@
+            @* @Html.ActionLink("Manage Flavors", "Index", "Flavors", new { @class = "btn btn-primary" }) *@
         </p>
-
+@* 
         @if (Model["flavors"] == null || Model["flavors"].Length == 0)
         {
             <p>No Flavors have been added yet!</p>
@@ -60,6 +59,26 @@
         }
     </div>
 </div>
-<hr /> 
+<hr />  *@
 
 
+  @{
+  Layout = "_Layout";
+}
+<body> 
+
+<div class="container"> 
+
+<h1>Welcome !!!</h1>
+
+</div>
+
+<div class="container">
+@Html.ActionLink("See all FLavors", "Index", "Flavors", null, new { @class = "custom-button" })
+
+@Html.ActionLink("See all Treats", "Index", "Treats", null, new { @class = "custom-button" })
+
+
+</div>
+
+</body>

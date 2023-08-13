@@ -31,7 +31,7 @@ namespace SweetAndSavory.Controllers
             if (currentUser != null)
             {
                 Treat[] treats = _db.Treats
-                    .Where(entry => entry.User.Id == currtUser.Id)
+                    // .Where(entry => entry.User.Id == currtUser.Id)
                     .ToArray();
                 model.Add("treats", treats);
             }
