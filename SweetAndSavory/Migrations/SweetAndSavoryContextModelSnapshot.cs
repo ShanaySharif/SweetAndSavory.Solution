@@ -262,6 +262,9 @@ namespace SweetAndSavory.Migrations
                     b.Property<int>("FlavorId")
                         .HasColumnType("int");
 
+                    b.Property<string>("FlavorName")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("TreatName")
                         .IsRequired()
                         .HasColumnType("longtext");

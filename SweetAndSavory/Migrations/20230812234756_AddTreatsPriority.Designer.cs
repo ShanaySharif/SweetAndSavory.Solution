@@ -11,7 +11,7 @@ using SweetAndSavory.Models;
 namespace SweetAndSavory.Migrations
 {
     [DbContext(typeof(SweetAndSavoryContext))]
-    [Migration("20230811234932_AddTreatsPriority")]
+    [Migration("20230812234756_AddTreatsPriority")]
     partial class AddTreatsPriority
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace SweetAndSavory.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SweetAndSavory.Models.Account", b =>
+            modelBuilder.Entity("SweetAndSavory.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
@@ -226,12 +226,10 @@ namespace SweetAndSavory.Migrations
                     b.Property<int>("TreatId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
+                    b.Property<string>("TreatName")
+                        .HasColumnType("longtext");
 
                     b.HasKey("FlavorId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Flavors");
                 });
@@ -266,16 +264,14 @@ namespace SweetAndSavory.Migrations
                     b.Property<int>("FlavorId")
                         .HasColumnType("int");
 
+                    b.Property<string>("FlavorName")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("TreatName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
                     b.HasKey("TreatId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Treats");
                 });
@@ -291,7 +287,7 @@ namespace SweetAndSavory.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SweetAndSavory.Models.Account", null)
+                    b.HasOne("SweetAndSavory.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -300,7 +296,7 @@ namespace SweetAndSavory.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SweetAndSavory.Models.Account", null)
+                    b.HasOne("SweetAndSavory.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -315,7 +311,7 @@ namespace SweetAndSavory.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SweetAndSavory.Models.Account", null)
+                    b.HasOne("SweetAndSavory.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -324,20 +320,11 @@ namespace SweetAndSavory.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SweetAndSavory.Models.Account", null)
+                    b.HasOne("SweetAndSavory.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SweetAndSavory.Models.Flavor", b =>
-                {
-                    b.HasOne("SweetAndSavory.Models.Account", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SweetAndSavory.Models.FlavorTreat", b =>
@@ -357,15 +344,6 @@ namespace SweetAndSavory.Migrations
                     b.Navigation("Flavor");
 
                     b.Navigation("Treat");
-                });
-
-            modelBuilder.Entity("SweetAndSavory.Models.Treat", b =>
-                {
-                    b.HasOne("SweetAndSavory.Models.Account", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SweetAndSavory.Models.Flavor", b =>
