@@ -1,36 +1,3 @@
-@* @{
-    Layout = "_Layout";
-}
-
-@model SweetAndSavory.Models.Flavor
-
-<h2>Flavor Details</h2>
-<hr />
-<div>
-    <h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</h3> 
-</div>
-
-@if (Model.JoinEntities.Count == 0)
-{
-    <p>This FRlavor does not have any added treats yet!</p>
-}
-else
-{
-    <h4>This Flavor has the following Treats Available:</h4>
-    <ul>
-        @foreach (var join in Model.JoinEntities)
-        {
-            <li>Treat: @join.Treat.TreatName</li>
-        }
-    </ul>
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.FlavorId })</p>
-<p>@Html.ActionLink("Add Treat", "AddTreat", new { id = Model.FlavorId })</p>
-<p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p> *@
-
-
 
 @{
     Layout = "_Layout";
@@ -46,7 +13,7 @@ else
 <div class="container">
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>There are no Treats associated with this Treat.</p>
+  <p>There are no Treats associated with this Flavor.</p>
 }
 else
 {
@@ -64,4 +31,5 @@ else
     <p>@Html.ActionLink("Add Treat to Flavor", "AddTreat", new {id = Model.FlavorId})</p>
     <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId})</p>
     <p>@Html.ActionLink("Back to all flavors", "Index")</p>
+    @Html.ActionLink("Return Home", "Index", "Home", null, new { @class = "btn btn-secondary" })
 </div>
