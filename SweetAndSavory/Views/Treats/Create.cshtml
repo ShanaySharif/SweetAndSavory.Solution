@@ -3,7 +3,7 @@
     Layout = "_Layout";
 }
 @using SweetAndSavory.Models
-@model SweetAndSavory.Models.Flavor
+@model SweetAndSavory.Models.Treat
 
 <div class="text-center">
     <h1>Add a New Treat</h1>
@@ -15,7 +15,7 @@
     {
         <div class="text-center">
             <div class="form-group">
-                <label class="form-label">@Html.DisplayNameFor(model => model.TreatName)</label>
+                @Html.LabelFor(model => model.TreatName)
                 @Html.TextBoxFor(model => model.TreatName, new { @class = "form-control" })
                 <p class="text-danger">@Html.ValidationMessageFor(model => model.TreatName)</p>
             </div>

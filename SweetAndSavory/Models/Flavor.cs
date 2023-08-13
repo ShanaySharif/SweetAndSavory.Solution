@@ -6,13 +6,11 @@ namespace SweetAndSavory.Models
   public class Flavor
   {
     public int FlavorId { get; set; }
-    public int TreatId { get; set; }
-
+  
     [Required(ErrorMessage = "This field cannot be empty. Please try again.")]
     
     public string FlavorName { get; set; }
-    public string TreatName { get; set; }
-  
+    
     public List <FlavorTreat> JoinEntities { get; set; }
    
     

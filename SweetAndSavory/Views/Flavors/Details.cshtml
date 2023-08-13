@@ -46,7 +46,7 @@ else
 <div class="container">
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>There are no Flavors associated with this Treat.</p>
+  <p>There are no Treats associated with this Treat.</p>
 }
 else
 {
@@ -61,7 +61,7 @@ else
 </div>
 <div class="link-container">
     <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
-    <p>@Html.ActionLink("Add Flavor to Treat", "AddTreat", new {id = Model.FlavorId})</p>
+    <p>@Html.ActionLink("Add Treat to Flavor", "AddTreat", new {id = Model.FlavorId})</p>
     <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId})</p>
     <p>@Html.ActionLink("Back to all flavors", "Index")</p>
 </div>

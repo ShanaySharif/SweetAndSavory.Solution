@@ -221,12 +221,6 @@ namespace SweetAndSavory.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("TreatId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TreatName")
-                        .HasColumnType("longtext");
-
                     b.HasKey("FlavorId");
 
                     b.ToTable("Flavors");
@@ -258,12 +252,6 @@ namespace SweetAndSavory.Migrations
                     b.Property<int>("TreatId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<int>("FlavorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FlavorName")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("TreatName")
                         .IsRequired()

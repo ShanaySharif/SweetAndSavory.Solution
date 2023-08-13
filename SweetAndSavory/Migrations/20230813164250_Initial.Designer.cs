@@ -11,8 +11,8 @@ using SweetAndSavory.Models;
 namespace SweetAndSavory.Migrations
 {
     [DbContext(typeof(SweetAndSavoryContext))]
-    [Migration("20230812234756_AddTreatsPriority")]
-    partial class AddTreatsPriority
+    [Migration("20230813164250_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,12 +223,6 @@ namespace SweetAndSavory.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("TreatId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TreatName")
-                        .HasColumnType("longtext");
-
                     b.HasKey("FlavorId");
 
                     b.ToTable("Flavors");
@@ -260,12 +254,6 @@ namespace SweetAndSavory.Migrations
                     b.Property<int>("TreatId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<int>("FlavorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FlavorName")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("TreatName")
                         .IsRequired()

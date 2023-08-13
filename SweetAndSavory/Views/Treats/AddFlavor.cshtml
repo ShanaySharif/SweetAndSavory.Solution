@@ -5,25 +5,27 @@
 @model SweetAndSavory.Models.Treat
 
 <div class="container">
-  <h1>Add Flavor to a Treat</h1>
+    <h1 class="text-center">Add A Flavor To Treat</h1>
 </div>
 <hr />
 <div class="container">
-    <h4>Add @Html.DisplayFor(model => model.TreatName) to an Flavor: </h4>
+    <h2>Add @Html.DisplayFor(model => model.TreatName) to a Flavor:</h2>
 </div>
 
 @using (Html.BeginForm())
-{<div class="form-container">
-    @Html.HiddenFor(model => model.TreatId)
-    <div>
-        @Html.Label("Select Treat: ")
-        @Html.DropDownList("TreatId", ViewBag.TreatId as SelectList)
+{
+    <div class="form-container">
+        @Html.HiddenFor(model => model.TreatId)
+        <div class="mb-3">
+            @Html.Label("Select Treat:")
+            @Html.DropDownList("TreatId", ViewBag.FlavorId as SelectList, new { @class = "form-select" })
+        </div>
     </div>
-</div>
-<div class="center">
-    <input type="submit" value="Save" />
-</div>
+    <div class="text-center">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
 }
+<hr />
 <div class="link-container">
-    <p>@Html.ActionLink("Back to All Treats", "Index")</p>
+    <p>@Html.ActionLink("Back to All Treats", "Index", new { @class = "btn btn-secondary" })</p>
 </div>
