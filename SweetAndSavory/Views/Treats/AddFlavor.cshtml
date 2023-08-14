@@ -17,8 +17,8 @@
     <div class="form-container">
         @Html.HiddenFor(model => model.TreatId)
         <div class="mb-3">
-            @Html.Label("Select Treat:")
-            @Html.DropDownList("TreatId", ViewBag.FlavorId as SelectList, new { @class = "form-select" })
+            @Html.Label("Select Flavor:")
+            @Html.DropDownList("FlavorId", ViewBag.FlavorId as SelectList, new { @class = "form-select" })
         </div>
     </div>
     <div class="text-center">
