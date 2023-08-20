@@ -12,6 +12,7 @@ using SweetAndSavory.ViewModels;
 
 namespace SweetAndSavory.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly SweetAndSavoryContext _db;
